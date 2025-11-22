@@ -3,6 +3,10 @@ coverage/*
 logs/*
 node_modules/*
 
+# Skill dependencies and cache
+.claude/skills/**/node_modules
+.claude/skills/**/.cache
+
 helix-importer-ui
 .DS_Store
 *.bak
