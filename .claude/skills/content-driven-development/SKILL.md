@@ -161,10 +161,58 @@ Expected: `200`
 
 ---
 
+## Step 4: Identify/Validate Test Content
+
+**Check first: Did user provide test URL(s)?**
+- If YES → Validate URL loads: `curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/path`
+- Expected: `200` status
+- If valid, mark complete and skip to Step 5
+
+**If NO, choose path based on task type:**
+
+### Path A: New Block (no existing content)
+
+**What to do:**
+- Skip find-test-content (nothing exists yet)
+- Note: Will create test content in next step
+- Mark complete (nothing to find)
+
+**Next:** Proceed to Step 5 to create test content
+
+---
+
+### Path B: Existing Block (with or without structure change)
+
+**What to do:**
+- Invoke find-test-content skill (to be created)
+
+**What find-test-content will do:**
+- Search for existing content pages containing the block
+- Report: URLs with notes on number of occurrences and variants
+
+**Provide to skill:**
+- Block name (if modifying existing)
+- Variants to search for (if known/applicable)
+- dev server url (if different than localhost:3000)
+
+**Next:** Use found URLs for testing in Step 5. If making block structure changes, also create test content with new structure.
+
+---
+
+**Success criteria:**
+- ✅ Test URL(s) identified for testing scenarios
+- ✅ Path determined (new block vs existing block)
+- ✅ URLs documented or noted as needing creation
+
+**Mark todo complete when:** Test content URL(s) identified and approach determined
+
+---
+
 ## Related Skills
 
 - **analyze-and-plan**: Invoked in Step 2 for requirements analysis and acceptance criteria
-- **content-modeling**: Invoked when designing or modifying content models
+- **content-modeling**: Invoked in Step 3 for designing content models
+- **find-test-content**: Invoked in Step 4 for finding and validating existing content (to be created)
 - **building-blocks**: Invoked during block implementation
 - **testing-blocks**: Referenced during validation phase
 - **block-collection-and-party**: Used to find similar blocks and reference implementations
