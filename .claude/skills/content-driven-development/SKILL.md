@@ -1,20 +1,13 @@
 ---
-name: Content Driven Development
-description: Apply a Content Driven Development process to AEM Edge Delivery Services development. Use for all development tasks, including building new blocks, modifying existing blocks, making changes to core decoration functionality, etc.
+name: content-driven-development
+description: Apply a Content Driven Development process to AEM Edge Delivery Services development. Use for ALL code changes - new blocks, block modifications, CSS styling, bug fixes, core functionality (scripts.js, styles, etc.), or any JavaScript/CSS work that needs validation.
 ---
 
 # Content Driven Development (CDD)
 
-Content Driven Development is a mandatory process for AEM Edge Delivery Services that prioritizes creating or identifying test content before writing code. This ensures code is built against real content with author-friendly content models.
+You are an orchestrator of the Content Driven Development workflow for AEM Edge Delivery Services. This workflow ensures code is built against real content with author-friendly content models.
 
 **CRITICAL: Never start writing or modifying code without first identifying or creating the content you will use to test your changes.**
-
-## Related Skills
-
-- **content-modeling**: Invoked when designing or modifying content models
-- **building-blocks**: Invoked during block implementation
-- **testing-blocks**: Referenced during validation phase
-- **block-collection-and-party**: Used to find similar blocks and reference implementations
 
 ## When to Use This Skill
 
@@ -25,9 +18,81 @@ Use CDD for ALL AEM development tasks:
 - ✅ Bug fixes that require validation
 - ✅ Any code that affects how authors create or structure content
 
-Skip CDD only for:
-- ⚠️ Trivial CSS-only styling tweaks (but still identify test content for validation)
-- ⚠️ Configuration changes that don't affect authoring
+Do NOT use for:
+- Documentation-only changes
+- Configuration changes that don't affect authoring
+- Research tasks that don't require making any code changes yet
+
+## Philosophy
+
+Content Driven Development prioritizes creating or identifying test content before writing code. This ensures:
+- Code is built against real content
+- Author-friendly content models
+- Validation throughout development
+
+**Optional: Understanding CDD Principles**
+
+Read `resources/cdd-philosophy.md` if:
+- User asks "why" questions about content-first approach
+- You need to understand reasoning behind CDD decisions
+- You're unsure whether to prioritize author vs developer experience
+
+Otherwise: Follow the workflow steps below
+
+## Step 0: Create TodoList
+
+**FIRST STEP:** Use the TodoWrite tool to create a todo list with the following 8 tasks:
+
+1. **Start dev server** (if not running)
+   - content: "Start dev server"
+   - activeForm: "Starting dev server"
+   - Success: Dev server running, can access http://localhost:3000
+
+2. **Analyze & plan**
+   - content: "Analyze & plan"
+   - activeForm: "Analyzing & planning"
+   - Success: Clear understanding documented + acceptance criteria defined
+
+3. **Design content model**
+   - content: "Design content model"
+   - activeForm: "Designing content model"
+   - Success: Content structure documented and validated
+
+4. **Identify/validate test content**
+   - content: "Identify/validate test content"
+   - activeForm: "Identifying/validating test content"
+   - Success: URL(s) that load successfully covering all test scenarios
+
+5. **Implement**
+   - content: "Implement"
+   - activeForm: "Implementing"
+   - Success: Functionality works across all viewports
+
+6. **Lint & test**
+   - content: "Lint & test"
+   - activeForm: "Linting & testing"
+   - Success: All checks pass
+
+7. **Final validation**
+   - content: "Final validation"
+   - activeForm: "Performing final validation"
+   - Success: All acceptance criteria met, everything works
+
+8. **Ship it**
+   - content: "Ship it"
+   - activeForm: "Shipping"
+   - Success: PR created with preview link for validation
+
+**Mark todo complete when:** Todo list created with all 8 tasks
+
+---
+
+## Related Skills
+
+- **content-modeling**: Invoked when designing or modifying content models
+- **building-blocks**: Invoked during block implementation
+- **testing-blocks**: Referenced during validation phase
+- **block-collection-and-party**: Used to find similar blocks and reference implementations
 
 ## CDD Checklist
 
