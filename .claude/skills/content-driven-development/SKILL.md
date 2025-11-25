@@ -214,12 +214,13 @@ Expected: `200`
 **What to do:**
 
 **First: Search for existing content**
-1. Invoke find-test-content skill (to be created)
-2. Provide: block name, variants (if applicable), dev server URL
+1. Invoke find-test-content skill
+2. Provide: block name, dev server URL (optional, defaults to localhost:3000)
 
 **What find-test-content will do:**
 - Search for existing content pages containing the block
-- Report: URLs with notes on number of occurrences and variants
+- Automatically detect and report all variants found
+- Report: URLs with instance counts and variant info
 
 **Then: Assess search results**
 
@@ -249,7 +250,7 @@ Expected: `200`
 
 - **analyze-and-plan**: Invoked in Step 2 for requirements analysis and acceptance criteria
 - **content-modeling**: Invoked in Step 3 for designing content models
-- **find-test-content**: Invoked in Step 4 for finding and validating existing content (to be created)
+- **find-test-content**: Invoked in Step 4, Option C for finding existing content
 - **building-blocks**: Invoked during block implementation
 - **testing-blocks**: Referenced during validation phase
 - **block-collection-and-party**: Used to find similar blocks and reference implementations
