@@ -44,43 +44,27 @@ Otherwise: Follow the workflow steps below
 **FIRST STEP:** Use the TodoWrite tool to create a todo list with the following 8 tasks:
 
 1. **Start dev server** (if not running)
-   - content: "Start dev server"
-   - activeForm: "Starting dev server"
    - Success: Dev server running, can access http://localhost:3000
 
 2. **Analyze & plan**
-   - content: "Analyze & plan"
-   - activeForm: "Analyzing & planning"
    - Success: Clear understanding documented + acceptance criteria defined
 
 3. **Design content model**
-   - content: "Design content model"
-   - activeForm: "Designing content model"
    - Success: Content structure documented and validated
 
 4. **Identify/validate test content**
-   - content: "Identify/validate test content"
-   - activeForm: "Identifying/validating test content"
    - Success: URL(s) that load successfully covering all test scenarios
 
 5. **Implement**
-   - content: "Implement"
-   - activeForm: "Implementing"
    - Success: Functionality works across all viewports
 
 6. **Lint & test**
-   - content: "Lint & test"
-   - activeForm: "Linting & testing"
    - Success: All checks pass
 
 7. **Final validation**
-   - content: "Final validation"
-   - activeForm: "Performing final validation"
    - Success: All acceptance criteria met, everything works
 
 8. **Ship it**
-   - content: "Ship it"
-   - activeForm: "Shipping"
    - Success: PR created with preview link for validation
 
 **Mark todo complete when:** Todo list created with all 8 tasks
