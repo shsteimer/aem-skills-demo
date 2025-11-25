@@ -92,14 +92,23 @@ See `resources/visual-analysis.md` for complete visual analysis guidance coverin
 
 ### Step 4: Document Analysis
 
-**Create markdown file with:**
+**Create markdown file at:** `drafts/tmp/{block-name}-analysis.md`
+- Use the block name being worked on (e.g., `drafts/tmp/hero-analysis.md`)
+- For non-block work, use descriptive name (e.g., `drafts/tmp/navigation-fix-analysis.md`)
+
+**File should include:**
 - Task description and context
 - Visual analysis (if applicable)
 - Requirements identified
 - Acceptance criteria defined
 - Any open questions or assumptions
 
-**Output:** Analysis file for reference in later steps
+**Notes:**
+- This is a working artifact, not committed to git
+- Used for reference throughout development (especially in Step 7: Final Validation)
+- Allows multiple analyses to coexist in drafts/tmp/
+
+**Output:** Analysis file at `drafts/tmp/{block-name}-analysis.md`
 
 ---
 
