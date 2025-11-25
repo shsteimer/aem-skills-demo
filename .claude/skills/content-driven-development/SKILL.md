@@ -87,6 +87,49 @@ Otherwise: Follow the workflow steps below
 
 ---
 
+## Step 1: Start Dev Server
+
+**Check if dev server is running:**
+
+```bash
+curl -s -o /dev/null -w "%{http_code}" http://localhost:3000
+```
+
+Expected: `200` (server running) or connection error (server not running)
+
+**If not running, start it:**
+
+```bash
+aem up --no-open --forward-browser-logs
+```
+
+**Notes:**
+- Run in background if possible (dev server needs to stay running)
+- Requires AEM CLI installed globally: `npm install -g @adobe/aem-cli`
+- Alternative: `npx -y @adobe/aem-cli up --no-open --forward-browser-logs`
+
+**IMPORTANT:** Check the command output for errors. Common issues:
+- Port 3000 already in use
+- AEM CLI not installed
+- Configuration errors
+
+**After starting, verify it's running:**
+
+```bash
+curl -s -o /dev/null -w "%{http_code}" http://localhost:3000
+```
+
+Expected: `200`
+
+**Success criteria:**
+- ✅ Dev server running
+- ✅ http://localhost:3000 returns 200
+- ✅ No errors in server startup output
+
+**Mark todo complete when:** Dev server confirmed running and accessible
+
+---
+
 ## Related Skills
 
 - **content-modeling**: Invoked when designing or modifying content models
