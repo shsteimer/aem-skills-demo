@@ -35,3 +35,84 @@
     padding: 40px 32px;
   }
 }
+
+/* Split variants */
+.hero.split {
+  padding: 0;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero.split picture {
+  position: relative;
+  z-index: auto;
+  inset: auto;
+}
+
+.hero.split > div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 300px;
+}
+
+/* Image container */
+.hero.split > div:first-child {
+  order: 0;
+}
+
+/* Text container */
+.hero.split > div:last-child {
+  order: 1;
+  padding: 40px 24px;
+}
+
+.hero.split > div:first-child > div {
+  width: 100%;
+  height: 100%;
+}
+
+.hero.split > div:first-child picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero.split > div:last-child > div {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero.split h1,
+.hero.split h2,
+.hero.split h3,
+.hero.split h4,
+.hero.split h5,
+.hero.split h6 {
+  color: var(--text-color);
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Desktop: side-by-side layout */
+@media (width >= 900px) {
+  .hero.split {
+    flex-direction: row;
+    min-height: 500px;
+  }
+
+  .hero.split > div:last-child {
+    padding: 40px 32px;
+  }
+}
+
+/* Split img-left variant: flip order on desktop */
+.hero.split.img-left > div:first-child {
+  order: 1;
+}
+
+.hero.split.img-left > div:last-child {
+  order: 0;
+}

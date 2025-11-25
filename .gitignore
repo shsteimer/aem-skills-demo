@@ -12,4 +12,7 @@ helix-importer-ui
 *.bak
 .idea
 
+drafts/tmp/
+test/tmp/
+
 .playwright-mcp/
