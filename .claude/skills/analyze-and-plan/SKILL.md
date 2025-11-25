@@ -108,19 +108,27 @@ See `resources/visual-analysis.md` for complete visual analysis guidance coverin
 ### Building a new block
 
 **Must analyze:**
-- Author inputs (what will authors provide? what's required vs optional? what can be inferred?)
+- Author inputs (list what content authors will provide: e.g., "image, title, description, link")
+  - What's required vs optional?
+  - What can be inferred or auto-generated?
 - What variations do we need to support?
 - Styling and layout expectations
 - Interactive behavior requirements
 - Responsive behavior across viewports
 
-**Note:** At this stage, focus on high-level authoring needs/inputs. Detailed content model design (table structure, cells, variants) happens in the content-modeling skill (CDD Step 3).
+**DON'T design at this stage:**
+- ❌ Table structure (how many columns/rows)
+- ❌ Cell layout (which content goes in which cell)
+- ❌ Block variant classes or naming
+- ❌ Exact authoring format or field names
+- ❌ Authoring experience or ease-of-use (always the goal, addressed in Step 3)
+
+**Note:** At this stage, focus on WHAT content is needed, not HOW it's structured. Detailed content model design (table structure, cells, variants, authoring UX) happens in the content-modeling skill (CDD Step 3).
 
 **Acceptance criteria should cover:**
 - Styling and layout match requirements across viewports
 - All variations work
 - Interactive behavior functions as expected
-- Author has flexibility to control what they need to
 
 ---
 
