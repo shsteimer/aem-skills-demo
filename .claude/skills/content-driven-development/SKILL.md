@@ -114,8 +114,32 @@ Expected: `200`
 
 ---
 
+## Step 2: Analyze & Plan
+
+**Invoke:** analyze-and-plan skill
+
+**Provide:**
+- Task description from user
+- Screenshots, design files, or existing URLs to match design from (if available)
+
+**The analyze-and-plan skill will:**
+- Guide you through task-specific analysis
+- Help define acceptance criteria
+- Optionally analyze visual designs/mockups if provided
+- Create documented analysis for reference
+
+**Success criteria:**
+- ✅ Requirements analyzed
+- ✅ Acceptance criteria defined
+- ✅ Analysis documented to file for later steps
+
+**Mark todo complete when:** Analysis documented and acceptance criteria defined
+
+---
+
 ## Related Skills
 
+- **analyze-and-plan**: Invoked in Step 2 for requirements analysis and acceptance criteria
 - **content-modeling**: Invoked when designing or modifying content models
 - **building-blocks**: Invoked during block implementation
 - **testing-blocks**: Referenced during validation phase
