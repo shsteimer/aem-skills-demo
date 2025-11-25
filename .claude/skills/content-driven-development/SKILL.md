@@ -137,6 +137,30 @@ Expected: `200`
 
 ---
 
+## Step 3: Design Content Model
+
+**Skip if:** CSS-only changes that don't affect content structure
+
+**Invoke:** content-modeling skill
+
+**Provide:**
+- Analysis from Step 2 (content requirements, author inputs)
+- Block name and purpose
+
+**The content-modeling skill will:**
+- Design table structure (rows, columns, semantic formatting)
+- Validate against best practices (4 cells/row, semantic formatting)
+- Document content model for authors
+
+**Success criteria:**
+- ✅ Content model designed (table structure defined)
+- ✅ Validated against best practices
+- ✅ Content model documented
+
+**Mark todo complete when:** Content model designed and documented
+
+---
+
 ## Related Skills
 
 - **analyze-and-plan**: Invoked in Step 2 for requirements analysis and acceptance criteria
