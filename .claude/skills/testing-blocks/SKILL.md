@@ -74,19 +74,20 @@ Load test content URL(s) in browser and validate:
 
 ### How to Test
 
-**Option 1: Manual browser testing**
+**Choose the method that makes most sense given your available tools:**
 
-1. Navigate to test content: `http://localhost:3000/path/to/test/content`
-2. Use browser dev tools responsive mode to test viewports:
-   - Mobile: <600px (e.g., 375px)
-   - Tablet: 600-900px (e.g., 768px)
-   - Desktop: >900px (e.g., 1200px)
-3. Check console for errors at each viewport
-4. Take screenshots as proof (browser screenshot tool or dev tools)
+**Option 1: Browser/Playwright MCP (Recommended)**
 
-**Option 2: Playwright automation (for multiple variants/scenarios)**
+If you have MCP browser or Playwright tools available, use them directly:
+- Navigate to test content URL
+- Take accessibility snapshots to inspect rendered content (preferred for interaction)
+- Take screenshots at different viewports for visual validation
+- Interact with elements as needed
+- Most efficient for agents with tool access
 
-Quick temporary test script:
+**Option 2: Playwright automation**
+
+Write one (or more) temporary test scripts to validate functionality with playwright and capture snapshots/screenshots for inspection and validation.
 
 ```javascript
 // test-my-block.js (temporary - don't commit)
@@ -99,6 +100,16 @@ async function test() {
   // Navigate and wait for block
   await page.goto('http://localhost:3000/path/to/test');
   await page.waitForSelector('.my-block');
+
+  // Inspect accessibility tree (useful for validating structure)
+  const accessibilityTree = await page.accessibility.snapshot();
+  console.log('Accessibility tree:', JSON.stringify(accessibilityTree, null, 2));
+  
+  // Optionally save to file for easier analysis
+  await require('fs').promises.writeFile(
+    'accessibility-tree.json',
+    JSON.stringify(accessibilityTree, null, 2)
+  );
 
   // Test viewports and take screenshots
   await page.setViewportSize({ width: 375, height: 667 });
@@ -119,11 +130,18 @@ async function test() {
 test().catch(console.error);
 ```
 
-Run: `node test-my-block.js` then delete the script.
+Run: `node test-my-block.js` then delete the script and analyze the resulting artifacts.
 
-**Option 3: Browser MCP tools**
+**Option 3: Manual browser testing**
 
-If available, use browser navigation/snapshot tools directly.
+Use a standard web browser with dev tools:
+1. Navigate to test content: `http://localhost:3000/path/to/test/content`
+2. Use browser dev tools responsive mode to test viewports:
+   - Mobile: <600px (e.g., 375px)
+   - Tablet: 600-900px (e.g., 768px)
+   - Desktop: >900px (e.g., 1200px)
+3. Check console for errors at each viewport
+4. Take screenshots as proof (browser screenshot tool or dev tools)
 
 ### Validation Against Acceptance Criteria
 
