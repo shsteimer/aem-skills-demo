@@ -246,6 +246,31 @@ Expected: `200`
 
 ---
 
+## Step 5: Implement
+
+**Invoke:** building-blocks skill
+
+**Provide:**
+- Content model from Step 3 (if applicable)
+- Test content URL(s) from Step 4
+- Analysis/requirements from Step 2
+- Type of changes: new block, existing block modification, CSS-only, etc.
+
+**The building-blocks skill will:**
+- Guide implementation approach based on change type
+- Handle JavaScript decoration (if needed)
+- Handle CSS styling (mobile-first, responsive)
+- Ensure iterative testing in browser throughout development
+
+**Success criteria:**
+- ✅ Code implementation complete
+- ✅ Functionality works across all viewports (mobile, tablet, desktop)
+- ✅ No console errors
+
+**Mark todo complete when:** building-blocks skill reports implementation complete and working across viewports
+
+---
+
 ## Related Skills
 
 - **analyze-and-plan**: Invoked in Step 2 for requirements analysis and acceptance criteria
