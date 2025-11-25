@@ -52,8 +52,8 @@ Otherwise: Follow the workflow steps below
 3. **Design content model**
    - Success: Content structure documented and validated
 
-4. **Identify/validate test content**
-   - Success: URL(s) that load successfully covering all test scenarios
+4. **Identify/create test content**
+   - Success: Test content accessible covering all scenarios
 
 5. **Implement**
    - Success: Functionality works across all viewports
@@ -161,50 +161,87 @@ Expected: `200`
 
 ---
 
-## Step 4: Identify/Validate Test Content
+## Step 4: Identify/Create Test Content
 
-**Check first: Did user provide test URL(s)?**
-- If YES → Validate URL loads: `curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/path`
-- Expected: `200` status
-- If valid, mark complete and skip to Step 5
+**Goal:** End this step with accessible test content URL(s) covering all test scenarios
 
-**If NO, choose path based on task type:**
-
-### Path A: New Block (no existing content)
-
-**What to do:**
-- Skip find-test-content (nothing exists yet)
-- Note: Will create test content in next step
-- Mark complete (nothing to find)
-
-**Next:** Proceed to Step 5 to create test content
+**Choose the best ath based on your situation:**
 
 ---
 
-### Path B: Existing Block (with or without structure change)
+### Option A: User Provided Test URL(s)
+
+**When to use:** User already has content and provided URL(s)
 
 **What to do:**
-- Invoke find-test-content skill (to be created)
+1. Validate URL loads: `curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/path`
+2. Expected: `200` status
+3. Document URL(s)
+4. Mark complete
+
+---
+
+### Option B: New Block (No Existing Content)
+
+**When to use:** Building a brand new block that doesn't exist yet
+
+**What to do:**
+1. Skip search (nothing exists yet to find)
+2. Create test content using one of these approaches:
+
+**Approach 1: CMS Content (Recommended)**
+1. Ask user to create content in their CMS (Google Drive/SharePoint/DA/Universal Editor)
+2. Provide content model from Step 3 as reference
+3. Wait for user to provide URL(s)
+4. Validate: `curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/path`
+5. Expected: `200` status
+
+**Approach 2: Local HTML (Temporary)**
+1. Create HTML file in `drafts/tmp/{block-name}.plain.html`
+2. Follow structure from Step 3 content model
+3. Read `resources/html-structure.md` for local HTML file format guidance
+4. Restart dev server: `aem up --html-folder drafts --no-open --forward-browser-logs`
+5. Validate: `curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/drafts/tmp/{block-name}`
+6. Expected: `200` status
+7. **Note:** User must create CMS content before PR (required for preview link)
+
+---
+
+### Option C: Existing Block
+
+**When to use:** Modifying, fixing, or styling an existing block
+
+**What to do:**
+
+**First: Search for existing content**
+1. Invoke find-test-content skill (to be created)
+2. Provide: block name, variants (if applicable), dev server URL
 
 **What find-test-content will do:**
 - Search for existing content pages containing the block
 - Report: URLs with notes on number of occurrences and variants
 
-**Provide to skill:**
-- Block name (if modifying existing)
-- Variants to search for (if known/applicable)
-- dev server url (if different than localhost:3000)
+**Then: Assess search results**
 
-**Next:** Use found URLs for testing in Step 5. If making block structure changes, also create test content with new structure.
+**If sufficient content found:**
+1. Document URL(s)
+2. Validate URLs load: `curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/path`
+3. Expected: `200` status
+4. Mark complete
+
+**If no content found OR insufficient coverage:**
+1. Create additional test content using approaches from Option B
+2. Validate URLs load
+3. Mark complete
 
 ---
 
 **Success criteria:**
-- ✅ Test URL(s) identified for testing scenarios
-- ✅ Path determined (new block vs existing block)
-- ✅ URLs documented or noted as needing creation
+- ✅ Test content accessible at known URL(s)
+- ✅ Content covers all test scenarios (variants, edge cases)
+- ✅ URLs validated (return 200)
 
-**Mark todo complete when:** Test content URL(s) identified and approach determined
+**Mark todo complete when:** Test content identified/created and validated
 
 ---
 
