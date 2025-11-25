@@ -82,6 +82,7 @@ If you have MCP browser or Playwright tools available, use them directly:
 - Navigate to test content URL
 - Take accessibility snapshots to inspect rendered content (preferred for interaction)
 - Take screenshots at different viewports for visual validation
+  - Consider both full-page screenshots and element-specific screenshots of the block being tested
 - Interact with elements as needed
 - Most efficient for agents with tool access
 
@@ -114,12 +115,15 @@ async function test() {
   // Test viewports and take screenshots
   await page.setViewportSize({ width: 375, height: 667 });
   await page.screenshot({ path: 'mobile.png', fullPage: true });
+  await page.locator('.my-block').screenshot({ path: 'mobile-block.png' });
 
   await page.setViewportSize({ width: 768, height: 1024 });
   await page.screenshot({ path: 'tablet.png', fullPage: true });
+  await page.locator('.my-block').screenshot({ path: 'tablet-block.png' });
 
   await page.setViewportSize({ width: 1200, height: 800 });
   await page.screenshot({ path: 'desktop.png', fullPage: true });
+  await page.locator('.my-block').screenshot({ path: 'desktop-block.png' });
 
   // Check for console errors
   page.on('console', msg => console.log('Browser:', msg.text()));
